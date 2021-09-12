@@ -1,0 +1,31 @@
+﻿@typeparam T
+
+<table @attributes="AdditionalAttributes">
+    <thead>
+        <tr>
+            @if (Head != null)
+            {
+                @Head
+            }
+            else
+            {
+                @DefaultHead
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @if (Body != null)
+        {
+            foreach (var Item in Items)
+            {
+                <tr>
+                    @this.Body(Item)
+                </tr>
+            }
+        }
+        else
+        {
+            @DefaultBody
+        }
+    </tbody>
+</table>
